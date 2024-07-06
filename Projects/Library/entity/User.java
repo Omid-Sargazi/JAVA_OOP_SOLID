@@ -1,4 +1,4 @@
-package Projects.Library;
+package Projects.Library.entity;
 
 public abstract class User {
     private String username;
