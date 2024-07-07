@@ -36,5 +36,21 @@ public class LibrarySystemApplication {
             System.out.println(book);
         }
 
+        // Borrow a book
+        if (userController.loginUser("john", "newpassword123")) {
+            bookController.borrowBook("B1");
+            System.out.println("Book borrowed: B1");
+        } else {
+            System.out.println("Login failed.");
+        }
+
+        // Return a book
+        bookController.returnBook("B1");
+        System.out.println("Book returned: B1");
+
+        // Logout
+        userController.logoutUser();
+        System.out.println("Logged out.");
+
     }
 }
