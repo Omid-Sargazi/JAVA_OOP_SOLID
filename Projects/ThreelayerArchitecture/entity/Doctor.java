@@ -1,5 +1,7 @@
 package Projects.ThreelayerArchitecture.entity;
 
+import java.util.List;
+
 public class Doctor extends Person {
     private String specialization;
     private List<Patient> patients; // Association
