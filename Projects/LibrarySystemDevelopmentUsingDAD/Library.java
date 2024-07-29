@@ -17,4 +17,11 @@ public class Library {
     public List<Book> listBooks() {
         return books;
     }
+
+    public void displayBooks() {
+        for (Book book : books) {
+            System.out.println(
+                    "Title: " + book.getTitle() + ", Author: " + book.getAuthor() + ", ISBN: " + book.getIsbn());
+        }
+    }
 }
