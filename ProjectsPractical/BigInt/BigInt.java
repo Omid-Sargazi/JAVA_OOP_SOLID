@@ -21,4 +21,8 @@ public class BigInt {
     public BigInt(int val) {
         this.value = BigInteger.valueOf(val);
     }
+
+    public BigInt add(BigInt other) {
+        return new BigInt(this.value.add(other.value));
+    }
 }
