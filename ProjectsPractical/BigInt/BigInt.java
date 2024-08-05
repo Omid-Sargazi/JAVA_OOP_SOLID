@@ -29,4 +29,8 @@ public class BigInt {
     public BigInt subtract(BigInt other) {
         return new BigInt(this.value.subtract(other.value));
     }
+
+    public BigInt multiply(BigInt other) {
+        return new BigInt(this.value.multiply(other.value));
+    }
 }
