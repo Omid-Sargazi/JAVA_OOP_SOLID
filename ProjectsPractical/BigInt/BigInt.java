@@ -17,4 +17,8 @@ public class BigInt {
     public BigInt(BigInteger val) {
         this.value = val;
     }
+
+    public BigInt(int val) {
+        this.value = BigInteger.valueOf(val);
+    }
 }
