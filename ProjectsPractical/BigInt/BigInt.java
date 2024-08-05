@@ -25,4 +25,8 @@ public class BigInt {
     public BigInt add(BigInt other) {
         return new BigInt(this.value.add(other.value));
     }
+
+    public BigInt subtract(BigInt other) {
+        return new BigInt(this.value.subtract(other.value));
+    }
 }
