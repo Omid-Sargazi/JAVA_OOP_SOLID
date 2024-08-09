@@ -11,4 +11,12 @@ public class MatrixOperations {
         }
         return matrix;
     }
+
+    public static void printMainDiagonal(int[][] matrix) {
+        System.out.println("Main Diagonal:");
+        for (int i = 0; i < Math.min(matrix.length, matrix[0].length); i++) {
+            System.out.print(matrix[i][i] + " ");
+        }
+        System.out.println();
+    }
 }
