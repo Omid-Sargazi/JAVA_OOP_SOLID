@@ -20,4 +20,9 @@ public class BigInt {
             }
             digits[i] = numStr.charAt(i) - '0';
         }
+
+    private BigInt(int[] digits, boolean isNegative) {
+        this.digits = digits;
+        this.isNegative = isNegative;
+    }
 }
