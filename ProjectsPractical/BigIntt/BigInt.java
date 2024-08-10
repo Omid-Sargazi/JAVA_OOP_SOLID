@@ -1,5 +1,7 @@
 package ProjectsPractical.BigIntt;
 
+import java.util.Arrays;
+
 public class BigInt {
     private int[] digits;
     private boolean isNegative;
@@ -20,6 +22,7 @@ public class BigInt {
             }
             digits[i] = numStr.charAt(i) - '0';
         }
+    }
 
     private BigInt(int[] digits, boolean isNegative) {
         this.digits = digits;
@@ -54,5 +57,10 @@ public class BigInt {
                 return new BigInt(subtractArrays(other.digits, this.digits), !this.isNegative);
             }
         }
+    }
+
+    public BigInt multiply(BigInt other) {
+        boolean resultNegative = this.isNegative != other.isNegative;
+        return new BigInt(multiplyArrays(this.digits, other.digits), resultNegative);
     }
 }
