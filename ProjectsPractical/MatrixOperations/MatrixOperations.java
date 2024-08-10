@@ -27,4 +27,12 @@ public class MatrixOperations {
         }
         System.out.println();
     }
+
+    public static void printNthColumn(int[][] matrix, int n) {
+        System.out.println("Column " + n + ":");
+        for (int[] ints : matrix) {
+            System.out.print(ints[n] + " ");
+        }
+        System.out.println();
+    }
 }
