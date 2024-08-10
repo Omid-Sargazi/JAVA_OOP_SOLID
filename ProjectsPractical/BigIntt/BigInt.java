@@ -9,4 +9,15 @@ public class BigInt {
         if (number == null || number.isEmpty()) {
             throw new IllegalArgumentException("Number cannot be null or empty");
         }
+
+        isNegative = number.charAt(0) == '-';
+        String numStr = isNegative ? number.substring(1) : number;
+
+        digits = new int[numStr.length()];
+        for (int i = 0; i < numStr.length(); i++) {
+            if (!Character.isDigit(numStr.charAt(i))) {
+                throw new IllegalArgumentException("Invalid character in number string");
+            }
+            digits[i] = numStr.charAt(i) - '0';
+        }
 }
