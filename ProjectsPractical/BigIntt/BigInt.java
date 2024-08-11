@@ -119,4 +119,24 @@ public class BigInt {
         result[0] = carry;
         return trimLeadingZeros(result);
     }
+
+    private int[] subtractArrays(int[] a, int[] b) {
+        int[] result = new int[a.length];
+        int borrow = 0;
+
+        for (int i = 0; i < a.length; i++) {
+            int aDigit = a[a.length - 1 - i];
+            int bDigit = i < b.length ? b[b.length - 1 - i] : 0;
+            int diff = aDigit - bDigit - borrow;
+            if (diff < 0) {
+                diff += 10;
+                borrow = 1;
+            } else {
+                borrow = 0;
+            }
+            result[result.length - 1 - i] = diff;
+        }
+
+        return trimLeadingZeros(result);
+    }
 }
