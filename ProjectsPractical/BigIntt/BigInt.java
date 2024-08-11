@@ -102,4 +102,21 @@ public class BigInt {
 
         return 0;
     }
+
+    private int[] addArrays(int[] a, int[] b) {
+        int maxLength = Math.max(a.length, b.length);
+        int[] result = new int[maxLength + 1];
+        int carry = 0;
+
+        for (int i = 0; i < maxLength; i++) {
+            int aDigit = i < a.length ? a[a.length - 1 - i] : 0;
+            int bDigit = i < b.length ? b[b.length - 1 - i] : 0;
+            int sum = aDigit + bDigit + carry;
+            result[result.length - 1 - i] = sum % 10;
+            carry = sum / 10;
+        }
+
+        result[0] = carry;
+        return trimLeadingZeros(result);
+    }
 }
