@@ -174,4 +174,19 @@ public class BigInt {
 
         return trimLeadingZeros(quotient);
     }
+
+    private int[] modArrays(int[] dividend, int[] divisor) {
+        // Copy dividend for modification
+        int[] dividendCopy = Arrays.copyOf(dividend, dividend.length);
+
+        // Modulus algorithm
+        for (int i = 0; i <= dividend.length - divisor.length; i++) {
+            int[] divisorShifted = shiftLeft(divisor, dividend.length - divisor.length - i);
+            while (compareAbsoluteArrays(dividendCopy, divisorShifted) >= 0) {
+                dividendCopy = subtractArrays(dividendCopy, divisorShifted);
+            }
+        }
+
+        return trimLeadingZeros(dividendCopy);
+    }
 }
