@@ -88,4 +88,18 @@ public class BigInt {
         int comparison = compareAbsolute(other);
         return this.isNegative ? -comparison : comparison;
     }
+
+    private int compareAbsolute(BigInt other) {
+        if (this.digits.length != other.digits.length) {
+            return this.digits.length - other.digits.length;
+        }
+
+        for (int i = 0; i < this.digits.length; i++) {
+            if (this.digits[i] != other.digits[i]) {
+                return this.digits[i] - other.digits[i];
+            }
+        }
+
+        return 0;
+    }
 }
