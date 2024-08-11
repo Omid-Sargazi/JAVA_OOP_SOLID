@@ -79,4 +79,13 @@ public class BigInt {
         boolean resultNegative = this.isNegative;
         return new BigInt(modArrays(this.digits, other.digits), resultNegative);
     }
+
+    public int compareTo(BigInt other) {
+        if (this.isNegative != other.isNegative) {
+            return this.isNegative ? -1 : 1;
+        }
+
+        int comparison = compareAbsolute(other);
+        return this.isNegative ? -comparison : comparison;
+    }
 }
