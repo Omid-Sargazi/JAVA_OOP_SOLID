@@ -155,4 +155,23 @@ public class BigInt {
 
         return trimLeadingZeros(result);
     }
+
+    private int[] divideArrays(int[] dividend, int[] divisor) {
+        // Initialize quotient array
+        int[] quotient = new int[dividend.length];
+
+        // Copy dividend for modification
+        int[] dividendCopy = Arrays.copyOf(dividend, dividend.length);
+
+        // Division algorithm
+        for (int i = 0; i <= dividend.length - divisor.length; i++) {
+            int[] divisorShifted = shiftLeft(divisor, dividend.length - divisor.length - i);
+            while (compareAbsoluteArrays(dividendCopy, divisorShifted) >= 0) {
+                dividendCopy = subtractArrays(dividendCopy, divisorShifted);
+                quotient[i]++;
+            }
+        }
+
+        return trimLeadingZeros(quotient);
+    }
 }
