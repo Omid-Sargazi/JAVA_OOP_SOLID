@@ -71,4 +71,12 @@ public class BigInt {
         boolean resultNegative = this.isNegative != other.isNegative;
         return new BigInt(divideArrays(this.digits, other.digits), resultNegative);
     }
+
+    public BigInt mod(BigInt other) {
+        if (other.equals(new BigInt("0"))) {
+            throw new ArithmeticException("Division by zero");
+        }
+        boolean resultNegative = this.isNegative;
+        return new BigInt(modArrays(this.digits, other.digits), resultNegative);
+    }
 }
