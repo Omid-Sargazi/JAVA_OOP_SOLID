@@ -29,6 +29,16 @@ public class MatrixOperations {
         // System.out.println();
     }
 
+    public static void printNthColumn(int[][] matrix, int n) {
+        System.out.println();
+        System.out.println("Column: " + n + ": ");
+
+        for (int i = 0; i < matrix.length; i++) {
+            System.out.println(matrix[i][n] + " ");
+        }
+        // System.out.println();
+    }
+
     public static void main(String[] args) {
         int rows = 5;
         int cols = 5;
@@ -36,5 +46,6 @@ public class MatrixOperations {
 
         printMainDiagonal(matrix);
         printNthRow(matrix, 2);
+        printNthColumn(matrix, 2);
     }
 }
