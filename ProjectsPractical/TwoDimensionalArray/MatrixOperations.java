@@ -20,11 +20,21 @@ public class MatrixOperations {
         System.out.println();
     }
 
+    public static void printNthRow(int[][] matrix, int n) {
+        System.out.println();
+        System.out.print("Row " + n + ":");
+        for (int j = 0; j < matrix[0].length; j++) {
+            System.out.print(matrix[n][j] + " ");
+        }
+        // System.out.println();
+    }
+
     public static void main(String[] args) {
         int rows = 5;
         int cols = 5;
         int[][] matrix = createMatrix(rows, cols);
 
         printMainDiagonal(matrix);
+        printNthRow(matrix, 2);
     }
 }
