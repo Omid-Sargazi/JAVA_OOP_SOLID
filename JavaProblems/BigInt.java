@@ -198,6 +198,27 @@ public class BigInt {
         return trimLeadingZeros(dividendCopy);
     }
 
+    private int[] shiftLeft(int[] array, int n) {
+        int[] result = new int[array.length + n];
+        System.arraycopy(array, 0, result, 0, array.length);
+        return result;
+    }
+
+    // Private method: Compare two arrays of digits
+    private int compareAbsoluteArrays(int[] a, int[] b) {
+        if (a.length != b.length) {
+            return a.length - b.length;
+        }
+
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] != b[i]) {
+                return a[i] - b[i];
+            }
+        }
+
+        return 0;
+    }
+
     public static void main(String[] args) {
         BigInt num1 = new BigInt("123");
     }
