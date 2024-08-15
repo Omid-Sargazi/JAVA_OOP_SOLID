@@ -57,6 +57,21 @@ public class BigInt {
         }
     }
 
+    // Multiplication
+    public BigInt multiply(BigInt other) {
+        boolean resultNegative = this.isNegative != other.isNegative;
+        return new BigInt(multiplyArrays(this.digits, other.digits), resultNegative);
+    }
+
+    // Division
+    public BigInt divide(BigInt other) {
+        if (other.equals(new BigInt("0"))) {
+            throw new ArithmeticException("Division by zero");
+        }
+        boolean resultNegative = this.isNegative != other.isNegative;
+        return new BigInt(divideArrays(this.digits, other.digits), resultNegative);
+    }
+
     private int[] addArrays(int[] a, int[] b) {
         int maxLength = Math.max(a.length, b.length);
         int[] result = new int[maxLength + 1];
