@@ -249,6 +249,13 @@ public class BigInt {
         return isNegative == other.isNegative && Arrays.equals(digits, other.digits);
     }
 
+    @Override
+    public int hashCode() {
+        int result = Arrays.hashCode(digits);
+        result = 31 * result + (isNegative ? 1 : 0);
+        return result;
+    }
+
     public static void main(String[] args) {
         BigInt num1 = new BigInt("123");
     }
