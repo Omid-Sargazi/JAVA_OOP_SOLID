@@ -227,6 +227,28 @@ public class BigInt {
         return Arrays.copyOfRange(array, leadingZeros, array.length);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(isNegative ? "-" : "");
+        for (int digit : digits) {
+            sb.append(digit);
+        }
+        return sb.toString();
+    }
+
+    // equals method: Check if two BigInt objects are equal
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        BigInt other = (BigInt) obj;
+        return isNegative == other.isNegative && Arrays.equals(digits, other.digits);
+    }
+
     public static void main(String[] args) {
         BigInt num1 = new BigInt("123");
     }
