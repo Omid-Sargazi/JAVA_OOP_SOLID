@@ -219,6 +219,14 @@ public class BigInt {
         return 0;
     }
 
+    private int[] trimLeadingZeros(int[] array) {
+        int leadingZeros = 0;
+        while (leadingZeros < array.length - 1 && array[leadingZeros] == 0) {
+            leadingZeros++;
+        }
+        return Arrays.copyOfRange(array, leadingZeros, array.length);
+    }
+
     public static void main(String[] args) {
         BigInt num1 = new BigInt("123");
     }
