@@ -148,6 +148,22 @@ public class BigInt {
         return trimLeadingZeros(result);
     }
 
+    private int[] multiplyArrays(int[] a, int[] b) {
+        int[] result = new int[a.length + b.length];
+
+        for (int i = 0; i < a.length; i++) {
+            int carry = 0;
+            for (int j = 0; j < b.length; j++) {
+                int product = result[result.length - 1 - i - j] + a[a.length - 1 - i] * b[b.length - 1 - j] + carry;
+                result[result.length - 1 - i - j] = product % 10;
+                carry = product / 10;
+            }
+            result[result.length - 1 - i - b.length] += carry;
+        }
+
+        return trimLeadingZeros(result);
+    }
+
     public static void main(String[] args) {
         BigInt num1 = new BigInt("123");
     }
