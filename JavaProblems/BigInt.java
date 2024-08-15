@@ -42,6 +42,21 @@ public class BigInt {
         }
     }
 
+    public BigInt subtract(BigInt other) {
+        if (this.isNegative != other.isNegative) {
+            return new BigInt(addArrays(this.digits, other.digits), this.isNegative);
+        } else {
+            int comparison = compareAbsolute(other);
+            if (comparison == 0) {
+                return new BigInt("0");
+            } else if (comparison > 0) {
+                return new BigInt(subtractArrays(this.digits, other.digits), this.isNegative);
+            } else {
+                return new BigInt(subtractArrays(other.digits, this.digits), !this.isNegative);
+            }
+        }
+    }
+
     private int[] addArrays(int[] a, int[] b) {
         int maxLength = Math.max(a.length, b.length);
         int[] result = new int[maxLength + 1];
