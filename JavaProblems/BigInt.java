@@ -72,6 +72,25 @@ public class BigInt {
         return new BigInt(divideArrays(this.digits, other.digits), resultNegative);
     }
 
+    // Modulus
+    public BigInt mod(BigInt other) {
+        if (other.equals(new BigInt("0"))) {
+            throw new ArithmeticException("Division by zero");
+        }
+        boolean resultNegative = this.isNegative;
+        return new BigInt(modArrays(this.digits, other.digits), resultNegative);
+    }
+
+    // Comparison
+    public int compareTo(BigInt other) {
+        if (this.isNegative != other.isNegative) {
+            return this.isNegative ? -1 : 1;
+        }
+
+        int comparison = compareAbsolute(other);
+        return this.isNegative ? -comparison : comparison;
+    }
+
     private int[] addArrays(int[] a, int[] b) {
         int maxLength = Math.max(a.length, b.length);
         int[] result = new int[maxLength + 1];
