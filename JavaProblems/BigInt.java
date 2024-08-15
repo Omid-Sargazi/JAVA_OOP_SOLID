@@ -42,6 +42,29 @@ public class BigInt {
         }
     }
 
+    private int[] addArrays(int[] a, int[] b) {
+        int maxLength = Math.max(a.length, b.length);
+        int[] result = new int[maxLength + 1];
+        int carry = 0;
+
+        for (int i = 0; i < maxLength; i++) {
+            int sum = carry;
+
+            if (i < a.length) {
+                sum += a[a.length - 1 - i];
+            }
+            if (i < b.length) {
+                sum += b[b.length - 1 - i];
+            }
+
+            result[result.length - 1 - i] = sum % 10;
+            carry = sum / 10;
+        }
+
+        result[0] = carry;
+        return trimLeadingZeros(result);
+    }
+
     public static void main(String[] args) {
         BigInt num1 = new BigInt("123");
     }
