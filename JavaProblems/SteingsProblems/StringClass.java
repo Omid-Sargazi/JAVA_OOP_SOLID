@@ -1,4 +1,4 @@
-package JavaProblems;
+package JavaProblems.SteingsProblems;
 
 public class StringClass {
 
@@ -63,6 +63,26 @@ public class StringClass {
                 result[i] = c;
             }
         }
+        return new String(result);
+    }
+
+    public static String trim(String str) {
+        int start = 0;
+        int end = str.length() - 1;
+
+        while (start <= end && str.charAt(start) == ' ') {
+            start++;
+        }
+
+        while (end >= start && str.charAt(end) == ' ') {
+            end++;
+        }
+
+        char[] result = new char[end - start + 1];
+        for (int i = start; i <= end; i++) {
+            result[i - start] = str.charAt(i);
+        }
+
         return new String(result);
     }
 
