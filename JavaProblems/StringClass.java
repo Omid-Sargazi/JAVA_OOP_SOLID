@@ -37,6 +37,20 @@ public class StringClass {
         return true;
     }
 
+    public static String toLowerCase(String str) {
+        char[] result = new char[str.length()];
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if (c >= '0' && c <= '9') {
+                continue;
+            }
+            if (c >= 'A' && c <= 'Z') {
+                result[i] = (char) (c - 'A' + 'a');
+            }
+        }
+        return new String(result);
+    }
+
     public static String toUpperCase(String str) {
         char[] result = new char[str.length()];
 
@@ -55,6 +69,8 @@ public class StringClass {
     public static void main(String[] args) {
         System.out.println(length("Omid sargazi"));
         System.out.println(concatenation("Omid", "Sargazi"));
+        System.out.println(toUpperCase("omidAAA258"));
+        System.out.println(toLowerCase("OMID5287@#"));
 
     }
 }
