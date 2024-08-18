@@ -37,6 +37,21 @@ public class StringClass {
         return true;
     }
 
+    public static String toUpperCase(String str) {
+        char[] result = new char[str.length()];
+
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+
+            if (c >= 'a' && c <= 'z') {
+                result[i] = (char) (c - 'a' + 'A');
+            } else {
+                result[i] = c;
+            }
+        }
+        return new String(result);
+    }
+
     public static void main(String[] args) {
         System.out.println(length("Omid sargazi"));
         System.out.println(concatenation("Omid", "Sargazi"));
