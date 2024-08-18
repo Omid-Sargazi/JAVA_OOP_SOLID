@@ -86,6 +86,20 @@ public class StringClass {
         return new String(result);
     }
 
+    public static String substring(String str, int start, int end) {
+        if (start < 0 || str.length() < end || start > end) {
+            throw new IndexOutOfBoundsException();
+
+        }
+
+        char[] result = new char[end - start + 1];
+        for (int i = start; i < end; i++) {
+            result[i] = str.charAt(i);
+        }
+
+        return new String(result);
+    }
+
     public static void main(String[] args) {
         System.out.println(length("Omid sargazi"));
         System.out.println(concatenation("Omid", "Sargazi"));
