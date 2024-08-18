@@ -23,6 +23,20 @@ public class StringClass {
         return new String(result);
     }
 
+    public static boolean Comparing(String str1, String str2) {
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+
+        for (int i = 0; i < str1.length(); i++) {
+            if (str1.charAt(i) != str2.charAt(i)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) {
         System.out.println(length("Omid sargazi"));
         System.out.println(concatenation("Omid", "Sargazi"));
