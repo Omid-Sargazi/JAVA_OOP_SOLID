@@ -7,6 +7,14 @@ public class Librarian extends User {
 
     }
 
+    public void addBook(Book book) {
+
+    }
+
+    public void removeBook(Book book) {
+
+    }
+
     @Override
     public void login() {
         System.out.println("Librarian logged in");
